@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* CSS styles here (see above) */
+        /* General body styles */
+*{
+    font-family: 'Poppins', sans-serif;
+    /*font-family: "Lucida Console", Monaco, monospace;*/
+}
+body {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Background.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Cover the entire viewport */
+    margin: 0; /* Remove default margin */
+}
+
+/* Form box styles */
+.form-box {
+    background: url(Blur.jpeg); /* White background with slight transparency */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    width: 300px; /* Fixed width */
+    max-width: 90%; /* Responsive width */
+    text-align: center; /* Center text */
+}
+
+/* Input field styles */
+.input-box {
+    margin-bottom: 25px; /* Space between input fields */
+    position: relative; /* Position for label */
+}
+
+.input-box input {
+    background:transparent;
+    width: 90%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    border: 1px solid #162938; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+}
+
+/* Label styles */
+.input-box label {
+    position: absolute; /* Absolute position for floating label */
+    left: 10px; /* Position inside input */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust position */
+    transition: 0.2s; /* Smooth transition */
+    color: #162916; /* Label color */
+    pointer-events: none; /* Prevent clicks on label */
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+    top: -10px; /* Move label up */
+    font-size: 12px; /* Reduce label size */
+    color: #162916; /* Change label color */
+}
+
+/* Button styles */
+.btn {
+    background: #162916; /* Button background color */
+    color: rgb(255, 255, 255); /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Button padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 90%; /* Full width */
+    transition: 0.3s; 
+}
+
+.btn:hover {
+    background: #0f1d0f; /* Darker shade on hover */
+}
+
+/* Additional link styles */
+.login-register p {
+    margin-top: 10px; /* Space above text */
+}
+
+.login-register a {
+    color: #162916; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.login-register a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-box login">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <!-- Email -->
+            <div class="input-box">
+                <input type="email" name="email" required placeholder=" ">
+                <label>Email</label>
+            </div>
+
+            <!-- Password -->
+            <div class="input-box">
+                <input type="password" name="password" required placeholder=" ">
+                <label>Password</label>
+            </div>
+
+            <!-- Remember me checkbox -->
+            <div class="remember-forget">
+                <label><input type="checkbox"> I agree to the terms and conditions</label>
+                <!-- <a href="#"><br> Forgot Password?</a> -->
+            </div>
+            <br>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn">Login</button>
+
+            <div class="login-register">
+                <p>Don't have an account? <a href="register.html" class="register-link">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle the floating label effect
+        const inputs = document.querySelectorAll('.input-box input');
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.classList.add('active');
+            });
+
+            input.addEventListener('blur', () => {
+                if (input.value.trim() === '') {
+                    input.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

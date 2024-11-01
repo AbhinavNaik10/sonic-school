@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background:url(Blur.jpeg);
+}
+
+header {
+    background-color: #333333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+#services {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service {
+    background-color: #162328;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.service:hover {
+    transform: scale(1.02);
+}
+
+.details {
+    display: none; /* Hidden by default */
+    color: #ffffff;
+}

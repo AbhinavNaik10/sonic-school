@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="gavinServices.css">
+</head>
+<body background="Blur.jpeg">
+   
+    <nav class="navbar">
+        <header>
+            <div class="logo">SonicSchool</div>
+            <ul class="menu">
+                <li><a href="gavinHome.html">Home</a></li>
+                <li><a href="experts.html">Experts</a></li>
+                <li><a href="courses.html"><b>Courses</b></a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html">Logout</a></li>
+            </ul>
+            <div class="search">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="20 20 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+        </header>
+    </nav>
+
+    <div class="container">
+        <form id="courseForm">
+            <h2>Our Courses</h2>
+            <div class="service-grid">
+                <div class="service-box" data-price="100" data-name="Drums">
+                    <img src="drumCourses.jpeg" alt="drums">
+                    <p>Drums</p>
+                    <p class="price">$100</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+                <div class="service-box" data-price="90" data-name="Vocals">
+                    <img src="vocalCourses.jpeg" alt="Vocals">
+                    <p>Vocals</p>
+                    <p class="price">$90</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+                <div class="service-box" data-price="200" data-name="Violin">
+                    <img src="violinCourses.jpeg" alt="Violin">
+                    <p>Violin</p>
+                    <p class="price">$200</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+                <div class="service-box" data-price="150" data-name="Bass">
+                    <img src="Bass.jpeg" alt="Bass">
+                    <p>Bass</p>
+                    <p class="price">$150</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+                <div class="service-box" data-price="250" data-name="Guitar">
+                    <img src="GuitarCourses.jpeg" alt="Guitar">
+                    <p>Guitar</p>
+                    <p class="price">$250</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+                <div class="service-box" data-price="350" data-name="Saxophone">
+                    <img src="saxCourses.jpeg" alt="Saxophone">
+                    <p>Saxophone</p>
+                    <p class="price">$350</p>
+                    <button type="button" class="select-btn">Select</button>
+                </div>
+            </div>
+            <button type="submit" id="confirmBtn">Confirm</button>
+        </form>
+    </div>
+
+    <script>
+        const selectedServices = [];
+
+        // Add event listeners to each select button
+        document.querySelectorAll('.select-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceBox = this.parentElement;
+                const serviceName = serviceBox.getAttribute('data-name');
+                const servicePrice = serviceBox.getAttribute('data-price');
+
+                // Add service to selectedServices array
+                selectedServices.push({
+                    name: serviceName,
+                    price: servicePrice
+                });
+
+                // Optionally, show a message or update UI to reflect selection
+                alert(serviceName + ' has been selected!');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('courseForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            if (selectedServices.length === 0) {
+                alert("No services selected!");
+                return;
+            }
+
+            // Send the selected services data to service.php
+            fetch('service.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(selectedServices)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the server
+                console.log(data);
+                alert("Services confirmed and stored in the database!");
+                selectedServices.length = 0; // Clear selected services after submission
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

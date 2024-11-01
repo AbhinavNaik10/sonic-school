@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Contact Section Styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url(Blur.jpeg);
+            background-size: cover;
+            background-position: center;
+            border: #162938;
+            border-radius: 5%;
+        }
+        #contact {
+            padding: 100px 100px;
+            padding-bottom: 9%;
+            background: url(Blur.jpeg);
+            color: #333;
+            text-align: center;
+        }
+        #contact h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #162938;
+        }
+        #contact p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        } 
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #162916;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            padding: 15px 20px;
+            background: #162916;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        .contact-form button:hover {
+            background: #0f1d0f;
+        }
+        .cta-button {
+            padding: 15px 20px;
+            background: #162916;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: inline-block; /* Ensure proper button style */
+            margin-top: 10px; /* Add some space */
+        }
+        .cta-button:hover {
+            background: #0f1d0f;
+        }
+        #links {
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <p style="font-weight:1000; font-family:'Courier New', Courier, monospace;">
+            We'd love to hear from you! Whether you have questions, feedback, or need support, feel free to reach out.
+        </p>
+        <div class="contact-form">
+            <form action="contact.php" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="phoneNo" placeholder="Your Phone Number" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <a href="signup.html" class="cta-button">Go Back Home</a>
+            </form>
+        </div>
+        <footer id="links">
+            <p>Follow us on 
+                <a href="#">Twitter</a>, 
+                <a href="#">Facebook</a>, 
+                <a href="#">Instagram</a>.
+            </p>
+        </footer>
+        <p>&copy; 2024 Sonic School. All rights reserved.</p> 
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.contact-form form');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Validate form fields
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const phoneNo = form.phoneNo.value.trim();
+                const message = form.message.value.trim();
+
+                // Check if fields are filled
+                if (name === '' || email === '' || phoneNo === '' || message === '') {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                // Validate phone number
+                const phonePattern = /^\d{10}$/; // Regex for exactly 10 digits
+                if (!phonePattern.test(phoneNo)) {
+                    alert('Please enter a valid 10-digit phone number.');
+                    return;
+                }
+
+                // If all validations pass, you can submit the form
+                form.submit(); // Uncomment this line to submit the form after validation
+            });
+        });
+    </script>
+</body>
+</html>

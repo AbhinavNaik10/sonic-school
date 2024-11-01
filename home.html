@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Start Now</title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #ffffff; /* White text for contrast */
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #1c1c1c, #3a3a3a);
+    overflow: hidden; /* Prevent scrollbars */
+    animation: backgroundAnimation 10s linear infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(45deg, #07234c, #ca1212);
+    }
+    25% {
+        background: linear-gradient(45deg, #243f5f, #95aa0a);
+    }
+    50% {
+        background: linear-gradient(45deg, #1f456b, #14c1c1);
+    }
+    75% {
+        background: linear-gradient(45deg, #d51b75, #6c10c2);
+    }
+    100% {
+        background: linear-gradient(45deg, #1711b6, #d621d9);
+    }
+}
+
+#btn {
+    margin-top: 20px;
+}
+
+input[type="button"] {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    background-color: #162316; /* Dark button background */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #0f1a0f; /* Slightly lighter on hover */
+    transform: scale(1.50);/* 1.05*/
+}
+
+
+        /* body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #162316;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    animation: backgroundAnimation 15s ease infinite;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#btn {
+    margin-top: 20px;
+}
+
+input[type="button"] {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #162316;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #0f1a0f;
+    transform: scale(1.05);
+} */
+
+
+</style>
+</head>
+<body>
+    <h2 style="
+    font-family: 'Courier New', monospace; /* You can change this to any desired font */
+    font-size: 2.5em;
+    color:#162316;
+    animation: moveText 3s ease-in-out infinite alternate;
+">Start your musical journey with Sonic School</h2>
+
+<style>
+@keyframes moveText {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+</style>
+    <div id="btn">
+        <input type="button" value="Get started" onclick="goToSignup()"> 
+    </div>
+</body>
+<script>
+    function goToSignup() {
+    // Redirect to signup.html with a smooth transition
+    window.location.href = 'signup.html';
+}
+</script>
+</html>
